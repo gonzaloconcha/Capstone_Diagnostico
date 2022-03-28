@@ -1,4 +1,4 @@
-from functions import top_retweet
+from functions import top_retweet, top_active_user, top_days
 
 def main():
     print("""
@@ -16,11 +16,17 @@ def main():
             respuesta = top_retweet()
             print("Los top 10 tweets más retweeted son:")
             for i in range(len(respuesta)):
-                print(f"{i + 1}. {respuesta[i]['url']}")
+                print(f"{i + 1}. {respuesta[i][0]}")
         elif int(opcion) == 2:
-            pass
+            respuesta = top_active_user()
+            print("Los top 10 usuarios en función a la cantidad de tweets que emitieron:")
+            for i in range(len(respuesta)):
+                print(f"{i + 1}. {respuesta[i]['url']}")
         elif int(opcion) == 3:
-            pass 
+            respuesta = top_days()
+            print("Los top 10 días donde hay más tweets:")
+            for i in range(len(respuesta)):
+                print(f"{i + 1}. {respuesta[i]['url']}")
         elif int(opcion) == 4:
             pass 
         else:
